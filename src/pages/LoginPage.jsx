@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { login } from '../store/authSlice'
 
 export default function LoginPage() {
   const navigate = useNavigate()
 
   // State for form fields
+  const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -15,11 +18,16 @@ export default function LoginPage() {
     if (email === 'hari@mail.com' && password === 'hari123') {
       setError('')
       // Redirect to Dashboard on success
+      console.log(email)
+      dispatch(login({ email }))
       navigate('/dashboard')
     } else {
       setError('Invalid email or password')
     }
   }
+
+  
+
 
   return (
     <div className="flex justify-center items-center h-screen">
