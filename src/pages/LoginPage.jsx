@@ -12,7 +12,7 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // For now, mock a successful login
-    if (email === 'user@example.com' && password === 'password') {
+    if (email === 'hari@mail.com' && password === 'hari123') {
       setError('')
       // Redirect to Dashboard on success
       navigate('/dashboard')
